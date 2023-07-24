@@ -1,0 +1,60 @@
+<div class="row">
+    <section class="main col-md-9">
+        {{#if data.item}}
+        <item>
+            <div class="row">
+                <div class="col-4">
+                    <h2>{{data.item.title}}</h2>
+                    <img src="{{data.item.featureImage}}" alt="feature Image" style="width:100%" />
+
+                </div>
+
+                <div class="col-8"><br />
+                    <br />
+                    <div class="row">
+                        <div class="col-12">
+                            {{{data.item.body}}}
+                            <br /><br />
+                            <strong>Price:</strong>
+                            $ {{data.item.price}}<br />
+                            <strong>Category:</strong>
+                            {{data.item.category}}<br />
+                            <strong>Last Updated:</strong>
+                            {{#formatDate data.item.postDate}}{{/formatDate}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </item>
+        {{else}}
+        <div class="col-md-12 text-center">
+            <h2>{{data.message}}</h2>
+            <p>Please try another Post / Category</p>
+        </div>
+        {{/if}}
+    </section>
+
+    <aside class="col-md-3">
+        <br /><br />
+        {{#if data.items}}
+        <h4>Items</h4>
+
+        <ul class="list-group">
+            {{#each data.items}}
+            <a href="/shop/{{this.id}}?category={{../viewingCategory}}" class="list-group-item">{{this.title}}</a>
+            {{/each}}
+        </ul>
+        {{/if}}
+        {{#if data.categories}}
+        <h4>Categories</h4>
+        <ul class="list-group">
+            {{#each data.categories}}
+            <a href="/shop?category={{this.id}}" class="list-group-item">{{this.category}}</a>
+            {{/each}}
+        </ul>
+        {{else}}
+        <h4>Categories</h4>
+        <p>{{data.categoriesMessage}}</p>
+        {{/if}}
+    </aside>
+</div>
