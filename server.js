@@ -8,7 +8,7 @@
  * Student ID: 164275216 
  * Date: 23/07/2023
  *
- *  Cyclic Web App URL: https://gray-gleaming-mussel.cyclic.app
+ *  Cyclic Web App URL: https://outstanding-blue-flannel-shirt.cyclic.app/about
  *
  *  GitHub Repository URL: https://github.com/avneet-kaur/WEB322app.git
  *
