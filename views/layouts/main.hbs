@@ -57,6 +57,43 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script>
+  window.addEventListener('scroll',function() {
+    localStorage.setItem('scrollPosition',window.scrollY);
+  },false);
+  window.addEventListener('load',function() {
+    if(localStorage.getItem('scrollPosition') !== null)
+      window.scrollTo(0, localStorage.getItem('scrollPosition'));
+  },false);
+</script>
+<script>
+  document.getElementById('lastModified').value = Date();
+</script>
+<script>
+  $(document).ready(function() {
+    $("#btn-miss").click(function(){
+      $("#missing-div").toggle();
+      $("#no-match").css("display", "none");
+    });
+    $("#cog").click(function(){
+      $("#admin").toggle();
+    });
+    $("#btn-miss, #btn-cart, #btn-user").on({
+      mouseenter: function () {
+        $(this).css("color", "grey");
+      },
+      mouseleave: function () {
+        $(this).css("color", "white");
+      }
+    });
+    $('#missing').on('keyup',function() {
+      $(this).css('width','0px');
+      $(this).css('height','0px');
+      $(this).css('width',Math.max(325,this.scrollWidth)+'px');
+      $(this).css('height',Math.max(130,this.scrollHeight)+'px');
+    });    
+  });
+</script>
   </body>
   {{#if errorMessage}}
   <div class="alert alert-danger">
